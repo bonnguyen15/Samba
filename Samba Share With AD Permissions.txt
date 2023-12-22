@@ -1,6 +1,6 @@
 apt-get -y install winbind libpam-winbind libnss-winbind krb5-config samba
 
-nano /etc/samba/smb.conf
+vim /etc/samba/smb.conf
 
    workgroup = LAB
    password server = WIN-COP5H9SA2PG.lab.local
@@ -13,11 +13,11 @@ nano /etc/samba/smb.conf
    winbind offline logon = false
 
 
-nano /etc/nsswitch.conf
+vim /etc/nsswitch.conf
  files winbind
 
 
-nano /etc/pam.d/common-session
+vim /etc/pam.d/common-session
 
 session optional        pam_mkhomedir.so skel=/etc/skel umask=077
 
@@ -44,7 +44,7 @@ chmod -R 0770 /sharing/
 chgrp -R "Domain Users" /sharing/
 
 
-nano /etc/samba/smb.conf
+vim /etc/samba/smb.conf
 [Marketing]
     comment = Marketing
     path = /sharing/marketing/
