@@ -1,4 +1,4 @@
-apt-get -y install winbind libpam-winbind libnss-winbind krb5-config
+apt-get -y install winbind libpam-winbind libnss-winbind krb5-config samba
 
 nano /etc/samba/smb.conf
 
@@ -22,8 +22,11 @@ nano /etc/pam.d/common-session
 session optional        pam_mkhomedir.so skel=/etc/skel umask=077
 
 
-nano /etc/network/interfaces
-dns-nameservers 10.0.0.100
+vim /etc/network/interfaces
+   dns-nameservers 10.0.0.100
+
+vim /etc/hosts
+   10.0.0.71 dftsql.diginetcorp.com dftsql
 
 systemctl restart networking
 
